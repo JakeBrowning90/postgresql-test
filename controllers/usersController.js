@@ -14,5 +14,6 @@ exports.usersNewGet = (req, res) => {
 };
 
 exports.usersNewPost = (req, res) => {
-  res.send(console.log("Placeholder post"));
+  console.log("username to be saved: ", req.body.username);
+  res.redirect("/")
 };
