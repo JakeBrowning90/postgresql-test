@@ -14,7 +14,8 @@ const db = require("../db/queries");
 async function usersListGet(req, res) {
   const usernames = await db.getAllUsernames();
   console.log("Usernames: ", usernames);
-  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  // res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  res.render("index", { usernames: usernames });
 }
 
 async function usersNewGet(req, res) {
