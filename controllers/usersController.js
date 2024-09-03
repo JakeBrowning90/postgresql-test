@@ -6,11 +6,13 @@ const { body, validationResult } = require("express-validator");
 
 exports.usersListGet = (req, res) => {
   console.log("Usernames will be logged here, WIP");
-  res.send("Placeholder home");
+  // res.send("Placeholder home");
+  res.render("index")
 };
 
 exports.usersNewGet = (req, res) => {
-  res.send("Placeholder get");
+  res.render("new")
+  // res.send("Placeholder get");
 };
 
 exports.usersNewPost = (req, res) => {
