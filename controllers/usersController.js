@@ -18,6 +18,13 @@ async function usersListGet(req, res) {
   res.render("index", { usernames: usernames });
 }
 
+async function usersSearchGet(req, res) {
+  const query = req.query.searchValue;
+  const usernames = await db.getSearchedUsernames(query);
+  console.log("Usernames: ", usernames);
+  res.render("search", { query: query, usernames: usernames });
+}
+
 async function usersNewGet(req, res) {
   res.render("new");
   // res.send("Placeholder get");
@@ -29,8 +36,17 @@ async function usersNewPost(req, res) {
   res.redirect("/");
 }
 
+async function usersDeleteGet(req, res) {
+  await db.deleteAllUsernames();
+  // console.log("Usernames: ", usernames);
+  // res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  res.redirect("/");
+}
+
 module.exports = {
   usersListGet,
+  usersSearchGet,
   usersNewGet,
   usersNewPost,
+  usersDeleteGet,
 };

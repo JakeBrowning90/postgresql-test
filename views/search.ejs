@@ -4,13 +4,14 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>Home</h1>
+    <h1>Search results</h1>
     <form action="/search" method="GET">
       <label for="">Search users:</label>
       <input type="text" name="searchValue" id="searchValue">
       <button type="submit">Search</button>
     </form>
-    <a href="/new">New</a>
+    <a href="/">Back to home</a>
+    <p>Results for "<%= query %>":</p>
     <ul>
       <% if (locals.usernames) { %> <% usernames.forEach(username => { %>
       <li>
@@ -18,6 +19,5 @@
       </li>
       <% }) %> <% } %>
     </ul>
-    <a href="/delete">Delete all usernames</a>
   </body>
 </html>
